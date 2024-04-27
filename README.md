@@ -13,9 +13,9 @@
 1. 设置为默认终端
 2. Appearance -> Theme -> Minimal (让窗口栏跟terminal一体化)
 3. Profile -> Keys -> Key Mappings -> Presets...(left corner) -> Natural Text Editing 
-  现在就可以想文字编辑一样编辑CLI，如: command+backspace=删除整行
+    现在就可以想文字编辑一样编辑CLI，如: command+backspace=删除整行
 4. Profile -> General -> Working Directory -> Reuse previous session's directory
-  新开窗口的工作目录就是旧窗口的目录
+    新开窗口的工作目录就是旧窗口的目录
 5. 颜色 我希望配置类似我vscode的1984主题风格，所以选中了[详情见 iTerm2 colors theme: Cyberdyne](https://iterm2colorschemes.com/)，我也导出了一份配置 见Default.json文件
 
 ## 快捷键
@@ -64,7 +64,29 @@ p10k configure
 
 配置完成一遍之后，再`p10k configure` 反而提示我安装了。
 
-
+如果你使用vscode, 你也需要[如何将nerd字体应用在vscode终端](https://github.com/romkatv/powerlevel10k/issues/671)
 
 # SSH
 
+> 这里以腾讯云举例
+
+1. `vim /etc/ssh/sshd_config` 
+
+2. 设置`PasswordAuthentication yes`，`PermitRootLogin yes`
+
+## Terminal
+这里我们采用iTerm2的action设置我们连接云端
+1. 查看云端需要哪个用户，`ls /home/` 查看有哪些用户，而命令行的提示account@xxx，account就是你当前用户
+1. 在iTerm2的shortcut里面添加一条记录Title=`xxxx`, Action=`ssh YourAccount@CouldPublicIPAddress`
+1. 在iTerm2的Profile -> Session -> Status bar enable (最后一条) -> 加入Action模块，记得要勾选Status bar enable
+
+最后我们就可以在iTerm2界面点击action菜单的`xxxx`应用你的指令，然后输入你的密码就可以了(在腾讯云的远程登入->密码/密钥登入)
+
+
+## VScode
+
+这里我们主要是安装一款`Remote - SSH`插件，安装之后点击Remote-SSH，点击加号添加你云端主机，`ssh YourAccount@CouldPublicIPAddress` 类似这样的命令，(按照他的placeholder的提示即可)
+
+> 可能添加完后不显示，点击刷新即可
+
+然后右键SSH，可以编辑SSH的config(`/Users/YourAccount/.ssh/config`)，其中`Host`可以更改为你想要的名字。
