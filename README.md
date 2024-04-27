@@ -18,6 +18,13 @@
   新开窗口的工作目录就是旧窗口的目录
 5. 颜色 我希望配置类似我vscode的1984主题风格，所以选中了[详情见 iTerm2 colors theme: Cyberdyne](https://iterm2colorschemes.com/)，我也导出了一份配置 见Default.json文件
 
+## 快捷键
+
++ Keys -> Key Bindings -> click `+` in left corner
++ Keybord Shortcut -> Click to Set -> press your hotkey
++ Action -> text -> sent text -> command you want + `\n` (for sent it to terminal)
+  + such as `ssh account@xxx.xxx.xxx.xxx \n` to connect your service.
+
 # Oh My ZSH
 
 
@@ -35,7 +42,6 @@ Mac默认是bash终端
 + `which zsh`显示你的zsh路径
 + `chsh $(which zsh)` 变量替换，并change shell 为 zsh
 + `echo $SHELL` 查看你当前用的是哪个shell
-
 
 
 ## 配置
